@@ -15,7 +15,7 @@ docker-compose up
 
 Here are some short snippets of the urrent implementation.
 
-- Vids for running demo with audio if possible
+**TODO**
 
 ## System design
 Pic for the complete system design
