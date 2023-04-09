@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Juice Shop tests on Selenium Grid 4" parallel="tests" thread-count="4" verbose="2">
+
+    <test name="Juice Shop end to End automation tests on Remote Chrome ">
+        <parameter name="browser" value="remote-chrome"/>
+        <classes>
+            <class name="com.example.selenium_grid_testing.LambdaTests">
+                <methods>
+                    <include name="produceLogsToKafka"/>
+                </methods>
+            </class>
+        </classes>
+    </test> 
+
+    <!-- <test name="Juice Shop end to End automation tests on Remote Firefox ">
+        <parameter name="browser" value="remote-firefox"/>
+        <classes>
+            <class name="com.example.selenium_grid_testing.LambdaTests">
+                <methods>
+                    <include name="produceLogsToKafka"/>
+                </methods>
+            </class>
+        </classes>
+    </test>  -->
+
+</suite>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Lambdatest" thread-count="4" parallel="methods">
+
+    <!-- Tested in the Chrome instance -->
+    <parameter name="browser" value="remote-chrome"/>
+    <test name="Search" verbose="2" preserve-order="true" enabled="true">
+        <groups>
+            <run>
+                <include name = "test-group-1"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.example.selenium_grid_testing.LambdaTests"></class>
+        </classes>
+    </test>
+ 
+    <!-- Tested in the Firefox instance -->
+    <parameter name="browser" value="remote-firefox"/>
+    <test name="ToDoApp" verbose="2" preserve-order="true" enabled="true">
+        <groups>
+            <run>
+                <include name = "test-group-1"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.example.selenium_grid_testing.LambdaTests"></class>
+        </classes>
+    </test>
+</suite> -->

@@ -1,0 +1,86 @@
+version: "3.0"
+
+services:
+
+#  Kafka setup
+  zookeeper-1:
+    image: lambda/zookeeper:2.7.0
+    build:
+      context: ./kafka_docker/zookeeper_docker
+    ports:
+      - '2181:2181'
+    volumes:
+    - ./kafka_docker/config/zookeeper-1/zookeeper.properties:/kafka/config/zookeeper.properties
+    - ./data/zookeeper-1/:/tmp/zookeeper/
+
+  kafka-1:
+    depends_on:
+      - zookeeper-1
+    image: lambda/kafka:2.7.0
+    build: 
+      context: ./kafka_docker
+    ports:
+      - '9092:9092'
+    volumes:
+    - ./kafka_docker/config/kafka-1/server.properties:/kafka/config/server.properties
+    - ./data/kafka-1/:/tmp/kafka-logs/
+
+  kafka-2:
+    depends_on:
+      - zookeeper-1
+    image: lambda/kafka:2.7.0
+    build: 
+      context: ./kafka_docker
+    ports:
+      - '9093:9092'
+    volumes:
+    - ./kafka_docker/config/kafka-2/server.properties:/kafka/config/server.properties
+    - ./data/kafka-2/:/tmp/kafka-logs/
+
+  kafka-3:
+    depends_on:
+      - zookeeper-1
+    image: lambda/kafka:2.7.0
+    build: 
+      context: ./kafka_docker
+    ports:
+      - '9094:9092'
+    volumes:
+    - ./kafka_docker/config/kafka-3/server.properties:/kafka/config/server.properties
+    - ./data/kafka-3/:/tmp/kafka-logs/
+
+    # chrome:
+    #   image: selenium/standalone-chrome
+    #   shm_size: 2gb
+    #   ports:
+    #     - 4444:4444
+    #     - 7900:7900
+
+  # # Selenium grid setup
+  # selenium-hub:
+  #   image: selenium/hub
+  #   container_name: selenium-hub
+  #   ports:
+  #     - "4442:4442"
+  #     - "4443:4443"
+  #     - "4444:4444"
+
+  # chrome:
+  #   image: selenium/node-chrome
+  #   shm_size: 2gb
+  #   depends_on:
+  #     - selenium-hub
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+  #     - SE_EVENT_BUS_PUBLISH_PORT=4442
+  #     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  # firefox:
+  #   image: selenium/node-firefox
+  #   shm_size: 2gb
+  #   depends_on:
+  #     - selenium-hub
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+  #     - SE_EVENT_BUS_PUBLISH_PORT=4442
+  #     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
