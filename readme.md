@@ -1,8 +1,6 @@
-<h1> Project Lambda <img src="https://github.com/egonelbre/gophers/raw/master/.thumb/animation/gopher-dance-long-3x.gif" width="30" height="30"></h1>
+<h1> Project Logobs <img src="https://github.com/egonelbre/gophers/raw/master/.thumb/animation/gopher-dance-long-3x.gif" width="30" height="30"></h1>
 
-Well to be honest, I got so deep in the rabbit hole of  learning new stuff in the backend that I almost forgot to make a frontend for this project :) 
-
-Well in this readme I have tried to cover **my reasoning** behind choosing such architecture and how much percentage I really completed to keep **full transparency**.
+**To be finished**
 
 **TLDR** <img src="https://github.com/egonelbre/gophers/blob/master/icon/typing-furiously.gif?raw=true" width = "20" height = "20">
 
